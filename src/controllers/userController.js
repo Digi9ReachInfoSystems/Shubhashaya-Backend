@@ -23,6 +23,10 @@ exports.createUser =  async (req, res) => {
     if (existingUser) {
       return res.status(400).send({ message: "User already exists with this email" });
     }
+    const phone_numberExists = await admin.auth().getUserByPhoneNumber(`+91${phone_number}`).catch(() => null);
+    if (phone_numberExists) {
+      return res.status(400).send({ message: "User already exists with this phone number" });
+    }
 
     const userRecord = await admin.auth().createUser({
       email: email,
