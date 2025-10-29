@@ -11,7 +11,8 @@ exports.createUser =  async (req, res) => {
     photo_url,
     user_name,
     iskaryakartha,
-    password
+    password,
+    groupname
   } = req.body;
 
  
@@ -45,6 +46,7 @@ exports.createUser =  async (req, res) => {
       iskaryakartha: iskaryakartha==="true"?true:false,
       photo_url: photo_url,
       user_name: user_name,
+      groupname: groupname,
       created_time: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp(), // Include updatedAt for later use
     });
@@ -61,6 +63,7 @@ exports.createUser =  async (req, res) => {
         iskaryakartha: iskaryakartha==="true"?true:false,
         photo_url: photo_url,
         user_name: user_name
+        groupname: groupname
       },
     });
   } catch (error) {
