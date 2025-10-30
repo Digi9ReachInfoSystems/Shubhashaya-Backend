@@ -62,7 +62,7 @@ exports.createUser =  async (req, res) => {
         phone_number: phone_number,
         iskaryakartha: iskaryakartha==="true"?true:false,
         photo_url: photo_url,
-        user_name: user_name
+        user_name: user_name,
         groupname: groupname
       },
     });
